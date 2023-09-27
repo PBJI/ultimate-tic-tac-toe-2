@@ -1,6 +1,6 @@
-const UTTT = require('./minimax.js');
+const uttt = require('./minimax.js');
 
-module.exports = class TTTT extends UTTT {
+module.exports = class tuttt extends uttt {
   constructor() {
     super();
     this.activate = false;
