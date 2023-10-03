@@ -71,12 +71,7 @@ module.exports = class uttt {
   // access to bot algorithm to these methods and properties of the
   // game.
 
-  // Captures current game state in case something goes wrong.
-  // captureGameState() {
-  //   return {
-  //
-  //   };
-  // }
+  // ?? Captures current game state in case something goes wrong.
 
   // Currently Checks move validity, check wins and ties, updates
   // weights, switches current player, throws only false on failures.
@@ -107,7 +102,7 @@ module.exports = class uttt {
       if (debug) {
         console.log(`sb:${this.smallBoards[x][y]} lb:${this.largeBoard[x]} win:${this.winner}`);
       } else {
-        console.log('Invalid move, either the cell or the small board is full');
+        console.log('Invalid move, either the cell || the small board is full || won');
       }
       return false;
     }
@@ -121,7 +116,7 @@ module.exports = class uttt {
 
     // Checks wins and ties at small board
     console.log('checking small tie or win');
-    const smallCheck = this.checkSmallWin(this.turn) ? 'Won' : this.checkSmallTie(this.turn) ? 'Tie' : 'Nothing';
+    const smallCheck = this.checkWin(this.turn, this.smallBoards[x], y) ? 'Won' : this.checkTie(this.smallBoards[x]) ? 'Tie' : 'Nothing';
     if (smallCheck === 'Won') {
       this.largeBoard[x] = this.turn;
       console.log('updating weights');
@@ -134,7 +129,7 @@ module.exports = class uttt {
 
     // Checks wins and ties at large board and swtiches current player
     console.log('checking big tie or win');
-    const largeCheck = this.checkLargeWin(this.turn) ? 'Won' : this.checkLargeTie(this.turn) ? 'Tie' : 'Nothing';
+    const largeCheck = this.checkWin(this.turn, this.largeBoard, y) ? 'Won' : this.checkTie(this.largeBoard) ? 'Tie' : 'Nothing';
     if ((largeCheck === 'Won')) {
       this.winner = this.turn;
     } else if (largeCheck === 'Tie') {
@@ -152,10 +147,12 @@ module.exports = class uttt {
     return true;
   }
 
-  checkSmallWin(player) {
-    const x = this.move[0];
-    const y = this.move[1];
-    const board = this.smallBoards[x];
+  checkWin(player, board, move) {
+    const y = move;
+    if (y === undefined || y === null) {
+      console.log('move is invalid, check before using checkWin');
+      process.exit(1);
+    }
     const row = board.slice(y - (y % 3), y - (y % 3) + 3);
     const col = [board[y % 9], board[(y + 3) % 9], board[(y + 6) % 9]];
     const diag1 = [board[0], board[4], board[8]];
@@ -169,28 +166,8 @@ module.exports = class uttt {
     return false;
   }
 
-  checkSmallTie() {
-    return this.smallBoards[this.move[0]].every((cell) => cell);
-  }
-
-  checkLargeWin(player) {
-    const y = this.move[1];
-    const board = this.largeBoard;
-    const row = board.slice(y - (y % 3), y - (y % 3) + 3);
-    const col = [board[y % 9], board[(y + 3) % 9], board[(y + 6) % 9]];
-    const diag1 = [board[0], board[4], board[8]];
-    const diag2 = [board[2], board[4], board[6]];
-    if (row.every((cell) => cell === player)
-            || col.every((cell) => cell === player)
-            || diag1.every((cell) => cell === player)
-            || diag2.every((cell) => cell === player)) {
-      return true;
-    }
-    return false;
-  }
-
-  checkLargeTie() {
-    return this.largeBoard.every((cell) => cell);
+  checkTie(board) {
+    return board.every((cell) => cell);
   }
 
   updateWeights(player, move) {
@@ -208,8 +185,11 @@ module.exports = class uttt {
         this.oWeightsLarge[x] = 0;
       }
       for (let i = 0; i < 9; i += 1) {
-        this.xWeightsSmall[x][i] += this.addWeightsToCell[y][i];
+        if (this.xWeightsSmall[x][i] !== 0) {
+          this.xWeightsSmall[x][i] += this.addWeightsToCell[y][i];
+        }
       }
+      this.oWeightsSmall[x][y] = 0;
     } else if (player === 'O') {
       if (this.largeBoard[x] === 'O') {
         if (this.winner === 'O') {
@@ -222,8 +202,11 @@ module.exports = class uttt {
         this.oWeightsLarge[x] = 0;
       }
       for (let i = 0; i < 9; i += 1) {
-        this.oWeightsSmall[x][i] += this.subWeightsToCell[y][i];
+        if (this.oWeightsSmall[x][i] !== 0) {
+          this.oWeightsSmall[x][i] += this.subWeightsToCell[y][i];
+        }
       }
+      this.xWeightsSmall[x][y] = 0;
     }
   }
 };

@@ -1,4 +1,4 @@
-const uttt = require('./minimax.js');
+const uttt = require('./uttt.js');
 
 module.exports = class tuttt extends uttt {
   constructor() {
@@ -14,8 +14,11 @@ module.exports = class tuttt extends uttt {
     for (let i = 0; i < Number(quantity); i += 1) {
       for (let j = 0; j < 9; j += 1) {
         for (let k = 0; k < 9; k += 1) {
-          if (!this.makeMove(j, k, this.activate)) {
+          if (!super.makeMove(j, k, this.activate)) {
             console.log(`CUSTOM ERROR: ${j + 1} board and ${k + 1} cell is not valid`);
+          }
+          if (super.winner) {
+            break;
           }
         }
       }
@@ -27,8 +30,11 @@ module.exports = class tuttt extends uttt {
       const j = Math.floor(Math.random() * 9);
       const k = Math.floor(Math.random() * 9);
       console.log(j, k);
-      if (!this.makeMove(j, k, this.activate)) {
+      if (!super.makeMove(j, k, this.activate)) {
         console.log(`CUSTOM ERROR: ${j + 1} board and ${k + 1} cell is not valid`);
+      }
+      if (super.winner) {
+        break;
       }
     }
   }
