@@ -1,7 +1,9 @@
 name: Update Branch Strategy
 
 on:
-  push: # Remove the branches filter to run on all branches
+  push:
+    branches:
+      - '*'  # Run on all branches
 
 jobs:
   generate-log:
@@ -24,6 +26,13 @@ jobs:
             N
             s/\(.*\)\n\(.*\)/# Branch Strategy\n\nHere is the Git log for all branches in the repository:\n\n```\n'"${LOG_CONTENT}"'\n```\n\n# Other Sections/
         }' README.md
+      env:
+        LOG_CONTENT: ${{ steps.generate-log.outputs.log }}
+
+  push-changes:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
@@ -33,6 +42,4 @@ jobs:
         git config --global user.name "${{ secrets.NAME }}"
         git add .
         git commit -m "Automated commit"
-        git push --quiet "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git" main
-      env:
-        LOG_CONTENT: ${{ steps.generate-log.outputs.log }}
+        git push --quiet "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git" ${{ github.ref }} main
