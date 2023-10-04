@@ -17,6 +17,7 @@ jobs:
       run: |
         git log --all --decorate --oneline --graph > git-log.txt
         echo "::set-output name=log::$(cat git-log.txt)"
+        cat git-log.txt
 
     - name: Update README
       id: readme-update
