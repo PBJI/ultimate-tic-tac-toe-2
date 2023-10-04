@@ -13,6 +13,11 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Set Git
+    - run: |
+        git config --global user.email "${{ secrets.EMAIL }}"
+        git config --global user.name "${{ secrets.NAME }}"
+
     - name: Generate Git Log
       run: |
         git fetch origin
@@ -31,17 +36,9 @@ jobs:
       env:
         LOG_CONTENT: ${{ steps.generate-log.outputs.log }}
 
-  push-changes:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
     - name: Push Changes
       run: |
-        git config --global user.email "${{ secrets.EMAIL }}"
-        git config --global user.name "${{ secrets.NAME }}"
         git add .
-        git commit -m "Automated commit"
+        git commit -m "Automated commit to README.md"
         git push --quiet "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git" ${{ github.ref }}
+
