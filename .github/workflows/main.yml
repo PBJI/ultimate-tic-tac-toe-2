@@ -15,6 +15,7 @@ jobs:
 
     - name: Generate Git Log
       run: |
+        git fetch origin
         git log --all --decorate --oneline --graph > git-log.txt
         echo "::set-output name=log::$(cat git-log.txt)"
         cat git-log.txt
