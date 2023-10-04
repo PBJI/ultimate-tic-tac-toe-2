@@ -8,7 +8,6 @@ The biggest feature for this project would be:
 - Multiplayer
 - Unbeatable Agent
 
-
 ### Checkout list of games similar to UTTT:
 
 [Checkout this wikipedia list of abstract games](https://en.wikipedia.org/wiki/Category:Abstract_strategy_games)
@@ -17,3 +16,5 @@ The biggest feature for this project would be:
 
 ### Discuss:
 [Discussion](https://github.com/PBJI/ultimate-tic-tac-toe-2/discussions)
+
+# Branch Strategy
