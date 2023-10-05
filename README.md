@@ -29,6 +29,10 @@ To play the game, you need to clone this repository and install the dependencies
 - If the sub-board where the next move must be made is already won or tied, then the player can choose any other sub-board instead.
 - The game is won by the player who wins three sub-boards in a row (horizontally, vertically, or diagonally), or by the player who wins the most sub-boards if all of them are filled.
 
+## Details on Contribution
+
+[Contribution guidelines for this project.](./contributors.md)
+
 ## License
 
 This project is licensed under the `{placeholder}` License - see the [LICENSE](^1^) file for details.
