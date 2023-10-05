@@ -8,12 +8,6 @@ The biggest feature for this project would be:
 - Multiplayer
 - Unbeatable Agent
 
-### Checkout list of games similar to UTTT:
-
-[Checkout this wikipedia list of abstract games](https://en.wikipedia.org/wiki/Category:Abstract_strategy_games) <br>
-[Checkout this wikipedia list of mathematical games](https://en.wikipedia.org/wiki/Category:Mathematical_games) <br>
-[Checkout this wikipedia list of paper and pencial games](https://en.wikipedia.org/wiki/Category:Paper-and-pencil_games) <br>
-
 ### Development Strategy using Git (You can start contributing on any of this branches):
 
 **Branches:**
