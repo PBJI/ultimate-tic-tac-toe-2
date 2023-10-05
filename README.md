@@ -8,7 +8,7 @@ The biggest feature for this project would be:
 - Multiplayer
 - Unbeatable Agent
 
-### Development Strategy using Git (You can start contributing on any of this branches):
+### On going development:
 
 **Branches:**
     
