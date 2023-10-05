@@ -14,5 +14,13 @@ The biggest feature for this project would be:
 [Checkout this wikipedia list of mathematical games](https://en.wikipedia.org/wiki/Category:Mathematical_games) <br>
 [Checkout this wikipedia list of paper and pencial games](https://en.wikipedia.org/wiki/Category:Paper-and-pencil_games) <br>
 
-### Discuss:
-[Discussion](https://github.com/PBJI/ultimate-tic-tac-toe-2/discussions)
+### Development Strategy using Git:
+
+Branches:
+    modules: Main branch where every production ready changes get merged. Also it will keep track of the repository's important branches, releases, actions, issues and pull-requests. 
+
+    bot: The experimental branch where tests and simulations are ran on different bots.
+    
+    backend: It is the development environment with express, nodejs with firebase as database, to serve the frontend react build files from frontend branch and also save games history.
+    
+    frontend: this branch contains the react development environment again with firebase.
