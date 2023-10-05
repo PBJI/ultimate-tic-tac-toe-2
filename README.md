@@ -33,7 +33,6 @@ To play the game, you need to clone this repository and install the dependencies
 
 This project is licensed under the `{placeholder}` License - see the [LICENSE](^1^) file for details.
 
-
 <!-- (^1^): Input link to license file in place of that.-->
 <!-- [`backend`](): Input link to backend branch in place of that.-->
 <!-- [`frontend`](): Input link to frontend branch in place of that.-->
