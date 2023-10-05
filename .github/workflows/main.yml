@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '*'  # Run on all branches
+    paths-ignore: 
+      'README.md'
 
 jobs:
   generate-log:
@@ -24,6 +26,8 @@ jobs:
         git log --all --decorate --oneline --graph > git-log.txt
         echo "::set-output name=log::$(cat git-log.txt)"
         cat git-log.txt
+      env:
+        LOG_CONTENT: ${{ steps.generate-log.outputs.log }}
 
     - name: Update README
       id: readme-update
@@ -33,8 +37,7 @@ jobs:
             N
             s/\(.*\)\n\(.*\)/# Branch Strategy\n\nHere is the Git log for all branches in the repository:\n\n```\n'"${LOG_CONTENT}"'\n```\n\n# Other Sections/
         }' README.md
-      env:
-        LOG_CONTENT: ${{ steps.generate-log.outputs.log }}
+      
 
     - name: Push Changes
       run: |
