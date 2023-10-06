@@ -7,9 +7,9 @@ module.exports = class UltimateTicTacToeGame {
       null, null, null,
       null, null, null,
     ];
-    const BOARD_SIZE = 9;
-    const SUB_BOARD_SIZE = 3; // MINI-BOARD_SIZE
-    for (let i = 0; i < BOARD_SIZE; i += 1) {
+    this.BOARD_SIZE = 9;
+    this.CONSECUTIVE_CELL_SIZE = 3; // CONSECUTIVE_CELL_SIZE
+    for (let i = 0; i < this.BOARD_SIZE; i += 1) {
       this.smallGameBoards.push([
         null, null, null,
         null, null, null,
@@ -77,7 +77,7 @@ module.exports = class UltimateTicTacToeGame {
   // weights, switches current player, throws only false on failures.
   makeMove(x, y, debug) {
     // Method side validation
-    if (x >= BOARD_SIZE || y >= BOARD_SIZE) {
+    if (x >= this.BOARD_SIZE || y >= this.BOARD_SIZE) {
       console.log('Out of bound, currentMove should not exceeed board limit');
       return false;
     }
@@ -153,8 +153,8 @@ module.exports = class UltimateTicTacToeGame {
       console.log('currentMove is invalid, check before using checkWinCondition');
       process.exit(1);
     }
-    const row = board.slice(y - (y % SUB_BOARD_SIZE), y - (y % SUB_BOARD_SIZE) + SUB_BOARD_SIZE);
-    const col = [board[y % BOARD_SIZE], board[(y + SUB_BOARD_SIZE) % BOARD_SIZE], board[(y + 6) % BOARD_SIZE]];
+    const row = board.slice(y - (y % this.CONSECUTIVE_CELL_SIZE), y - (y % this.CONSECUTIVE_CELL_SIZE) + this.CONSECUTIVE_CELL_SIZE);
+    const col = [board[y % this.BOARD_SIZE], board[(y + this.CONSECUTIVE_CELL_SIZE) % this.BOARD_SIZE], board[(y + 6) % this.BOARD_SIZE]];
     const diag1 = [board[0], board[4], board[8]];
     const diag2 = [board[2], board[4], board[6]];
     if (row.every((cell) => cell === player)
@@ -184,7 +184,7 @@ module.exports = class UltimateTicTacToeGame {
         this.xPlayerWeightsLarge[x] = 0;
         this.oPlayerWeightsLarge[x] = 0;
       }
-      for (let i = 0; i < BOARD_SIZE; i += 1) {
+      for (let i = 0; i < this.BOARD_SIZE; i += 1) {
         if (this.xPlayerWeightsSmall[x][i] !== 0) {
           this.xPlayerWeightsSmall[x][i] += this.additiveWeightsToCell[y][i];
         }

@@ -17,20 +17,20 @@ module.exports = class buttt extends tuttt {
 
   // Predicts winning chance for current opponent after the next move
   listCurrentWeights() {
-    const currentSmallBoards = deepCopy(this.smallBoards);
+    const currentSmallBoards = deepCopy(this.smallGameBoards);
     // const currentLargeBoard = deepCopy(super.largeBoard);
-    const currentBoard = deepCopy(currentSmallBoards[this.move[1]]);
+    const currentBoard = deepCopy(currentSmallBoards[this.currentMove[1]]);
     const currentSmallWeights = {
-      X: deepCopy(this.xWeightsSmall),
-      O: deepCopy(this.oWeightsSmall),
+      X: deepCopy(this.xPlayerWeightsSmall),
+      O: deepCopy(this.oPlayerWeightsSmall),
     };
-    const currentPlayer = this.turn;
+    const currentPlayer = this.currentPlayer;
     const currentCellWeights = [];
     // Player Turn: X, move: 4, currentBoard: 4
     // CheckWin on each move
     // List weights with currentsmallboard cell data
     currentBoard.forEach((cell, index) => {
-      currentCellWeights.push([cell, currentSmallWeights[currentPlayer][this.move[1]][index]]);
+      currentCellWeights.push([cell, currentSmallWeights[currentPlayer][this.currentMove[1]][index]]);
     });
     return currentCellWeights;
   }
