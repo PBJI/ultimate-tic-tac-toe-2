@@ -19,6 +19,11 @@ This project is divided into four branches:
 - [`backend`](): The development environment with Express, Node.js with Firebase as database, to serve the frontend React build files from the frontend branch and also save games history.
 - [`frontend`](): This branch contains the React development environment again with Firebase.
 
+To ensure no merge conflicts, each of this branches will contain only one directory under which their development would take place:
+bot: Game/
+backend: Backend/
+frontend: Frontend/
+
 ## How to play
 
 To play the game, you need to clone this repository and install the dependencies using `npm install`. Then, you can run the game using `npm start`. You can choose to play against another human player or against the bot. The rules of the game are as follows:
