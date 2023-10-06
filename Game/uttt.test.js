@@ -1,6 +1,6 @@
-const uttt = require('./uttt.js');
+const UltimateTicTacToe = require('./uttt.js');
 
-module.exports = class tuttt extends uttt {
+module.exports = class UnitTestUltimateTicTacToe extends UltimateTicTacToe {
   constructor() {
     super();
     this.activate = false;
