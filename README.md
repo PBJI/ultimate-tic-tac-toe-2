@@ -19,10 +19,46 @@ This project is divided into four branches:
 - [`backend`](): The development environment with Express, Node.js with Firebase as database, to serve the frontend React build files from the frontend branch and also save games history.
 - [`frontend`](): This branch contains the React development environment again with Firebase.
 
-To ensure no merge conflicts occur when developing these separate features, each of this branches will contain only one directory under which their development would take place:
+To ensure no merge conflicts occur when developing these separate features, each of this branches will contain only one sub-directory under which their development would take place, except for the modules (main) branch:
 - bot: Game/
 - backend: Backend/
 - frontend: Frontend/
+
+Your workflow should ideally look like this:
+```
+// Step-1: If you want to work on any feature, then execute following cmds first from root directory.
+
+git switch <branch-name>
+cd <branch-sub-directory>
+//Make some changes.
+git add .
+git commit "use [commits_conventions](https://www.conventionalcommits.org/en/v1.0.0"/)"
+
+
+
+// Step-2: If you are ready to merge your changes into the (main branch) modules branch as production ready, then from root directory follow below cmds.
+
+git switch modules
+git checkout <branch-name> ./<branch-directory> //Only adds changes made in the Game directory of bot branch
+git add .
+git commit "use [commits_conventions](https://www.conventionalcommits.org/en/v1.0.0"/)"
+```
+
+e.g.:
+```
+Step-1:
+git switch bot
+cd Game
+//Made some changes
+git add .
+git commit "change: the reason for changes"
+
+Step-2:
+git switch modules
+git checkout bot ./Game //Only adds changes made in the /Game of bot branch ---> modules branch
+git add .
+git commit "change: the reason for changes"
+```
 
 ## How to play
 
