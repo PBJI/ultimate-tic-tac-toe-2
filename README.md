@@ -10,14 +10,28 @@ The main features of this project are:
 - Multiplayer mode
 - Unbeatable bot using minimax algorithm
 
-## Development
+## Development 
+<!-- Hi, owner you should keep updating this section after major or minor change -->
+<!-- 
+  What will be considered a major or minor change? 
+  A minor change would introduce a feature addition and a major change would introduce a breaking change.
+  Where older versions of the application would not be compatible with the new one.
+  
+  In our case for example, a major change would be to re-design the data model in the database application.
+  Or re-develop the application with other tech stack.
+  This change will render front-end or back-end partially or in rare case completely non-functional.
+  Hence README.md should notify the contributors about these changes, especially Major ones.
 
-This project is divided into four branches:
+  For example if in future the (contributors) decide to change the applications database management system from Firebase to MongoDB,
+  then the README.md should reflect that decision and an issue must be referred for the same.
+-->
+
+This project is divided into four main branches, reflecting the four main features:
 
 - [`modules`](https://github.com/PBJI/ultimate-tic-tac-toe-2/tree/modules): Main branch where every production-ready changes get merged. Also, it keeps track of the repository's important branches, releases, actions, issues, and pull requests.
 - [`bot`](https://github.com/PBJI/ultimate-tic-tac-toe-2/tree/bot): The experimental branch where tests and simulations are run on different bots.
-- [`backend`](): The development environment with Express, Node.js with Firebase as database, to serve the frontend React build files from the frontend branch and also save games history.
-- [`frontend`](): This branch contains the React development environment again with Firebase.
+- [`backend`](): The development environment with Express library, Node.js runtime with Firebase as database to save games history or help connect two players in real-time. It will also serve the frontend files from the frontend branch.
+- [`frontend`](): This branch contains the React development environment with build and production files.
 
 To ensure no merge conflicts occur when developing these separate features, each of this branches will contain only one sub-directory under which their development would take place, except for the modules (main) branch:
 - bot: Game/
@@ -27,10 +41,10 @@ To ensure no merge conflicts occur when developing these separate features, each
 
 **NOTE: To develop in this project, your workflow should ideally include the following git workflow:**
 
-Step-1: If you want to work on any feature, then execute following cmds first from root directory.
+Step-1: If you want to work on any of the main features, then first execute following commands from the root directory of the project.
 > b: ```git switch <branch-name>```<br>
 > sd: ```cd <branch-sub-directory>```<br>
-Make some changes.<br>
+Make some changes, like adding features or fixing a bug.<br>
 > a: ```git add .```<br>
 > c:```git commit "use [commits_conventions](https://www.conventionalcommits.org/en/v1.0.0"/)"```<br>
 > Acronym: b-sd-a-c<br>
