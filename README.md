@@ -31,7 +31,7 @@ This project is divided into four main branches, reflecting the four main featur
 - [`modules`](https://github.com/PBJI/ultimate-tic-tac-toe-2/tree/modules): Main branch where every production-ready changes get merged. Also, it keeps track of the repository's important branches, releases, actions, issues, and pull requests.
 - [`bot`](https://github.com/PBJI/ultimate-tic-tac-toe-2/tree/bot): The experimental branch where tests and simulations are run on different bots.
 - [`backend`](): The development environment with Express library, Node.js runtime with Firebase as database to save games history or help connect two players in real-time. It will also serve the frontend files from the frontend branch.
-- [`frontend`](): This branch contains the React development environment with build and production files.
+- [`frontend`](): This branch contains the React development environment with build and production files. Checkout this issue for more information: #17
 
 To ensure no merge conflicts occur when developing these separate features, each of this branches will contain only one sub-directory under which their development would take place, except for the modules (main) branch:
 - bot: Game/
