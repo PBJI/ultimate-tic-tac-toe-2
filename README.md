@@ -64,7 +64,6 @@ Example:
 > a: ```git add .```<br>
 > c: ```git commit "change: the reason for changes"```<br>
 > Acronym: m-ch-a-c
-<br>
 
 ## How to play
 
