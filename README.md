@@ -45,7 +45,7 @@ Example:
 > c: ```git commit "change: the reason for changes"```<br>
 > Acronym: b-sd-a-c <br>
 
-<br><br><br>
+<br><br>
 
 Step-2: If you are ready to merge your changes into the (main branch) modules branch as production ready, then from root directory follow below cmds.
 > m: ```git switch modules```<br>
