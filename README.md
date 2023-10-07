@@ -42,8 +42,8 @@ To ensure no merge conflicts occur when developing these separate features, each
 **NOTE: To develop in this project, your workflow should ideally include the following git workflow:**
 
 Step-1: If you want to work on any of the main features, then first execute following commands from the root directory of the project.
-> b: ```git switch <branch-name>```<br>
-> sd: ```cd <branch-sub-directory>```<br>
+> b: ```git switch <feature-branch-name>```<br>
+> sd: ```cd <feature-branch-sub-directory>```<br>
 Make some changes, like adding features or fixing a bug.<br>
 > a: ```git add .```<br>
 > c:```git commit "use [commits_conventions](https://www.conventionalcommits.org/en/v1.0.0"/)"```<br>
@@ -63,8 +63,8 @@ Example:
 
 Step-2: If you are ready to merge your changes into the (main branch) modules branch as production ready, then from root directory follow below cmds.
 > m: ```git switch modules```<br>
-> branch-name: the branch in which changes are committed in step-1 <br>
-> branch-directory: the directory in which the commits are performed <br>
+> branch-name: the feature branch in which changes were committed in step-1 <br>
+> branch-directory: the directory in which the commits were performed in step-1<br>
 > ch: ```git checkout <branch-name> ./<branch-directory>```<br>
 > a: ```git add .```<br>
 > c: ```git commit "use [commits_conventions](https://www.conventionalcommits.org/en/v1.0.0"/)"```<br>
