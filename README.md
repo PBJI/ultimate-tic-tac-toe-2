@@ -10,7 +10,7 @@ The main features of this project are:
 - Multiplayer mode
 - Unbeatable bot using minimax algorithm
 
-## Development 
+## [Modulo Monolith Development](https://www.thoughtworks.com/en-in/insights/blog/microservices/modular-monolith-better-way-build-software#:~:text=It%20poses%20several%20challenges%20around,early%20stages%20of%20software%20development.)
 <!-- Hi, owner you should keep updating this section after major or minor change -->
 <!-- 
   What will be considered a major or minor change? 
